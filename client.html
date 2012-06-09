@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script type="text/javascript" src="http://localhost:9000/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		var socket = io.connect("http://localhost", {port:9000});
+		socket.on("connect", function(msg){
+		});
+		socket.on("resp", function(msg){
+			var disp = document.getElementById("display");
+			var conts = msg.replace(/[\n\r]/g, "<br/>");
+			disp.innerHTML = conts;
+		});
+	</script>
+</head>
+<body>
+	<div id="display"></div>
+</body>
+</html>
